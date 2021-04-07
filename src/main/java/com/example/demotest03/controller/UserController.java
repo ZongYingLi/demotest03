@@ -4,16 +4,19 @@ import com.example.demotest03.mapper.UserMapper;
 import com.example.demotest03.pojo.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 @RestController
+@RequestMapping("/user")
 public class UserController {
 
     @Autowired
     private UserMapper userMapper;
 
+//    访问http://localhost:8080/user/queryUserList
     @GetMapping("/queryUserList")
     public List<User> queryUserList(){
         List<User> userList = userMapper.queryUserList();
